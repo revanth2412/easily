@@ -18,7 +18,8 @@ app.use(
     cookie: { secure: false },
   })
 );
-app.use(express.static('public'));
+
+app.use(express.static(path.join(__dirname, 'public')));
 // Add this middleware to handle serving CSS files with the correct content type
 app.get('/css/index.css', function(req, res) {
   res.setHeader('Content-Type', 'text/css');
