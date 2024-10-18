@@ -19,6 +19,11 @@ app.use(
   })
 );
 app.use(express.static('public'));
+// Add this middleware to handle serving CSS files with the correct content type
+app.get('/css/index.css', function(req, res) {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'public', 'css', 'index.css'));
+});
 
 
 /*jobs controller settings*/
